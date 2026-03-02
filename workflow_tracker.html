@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Workflow Productivity Tracker</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f8;
+padding:40px;
+}
+
+.container{
+width:700px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+text-align:center;
+}
+
+label{
+font-weight:bold;
+}
+
+input,select,textarea{
+width:100%;
+padding:8px;
+margin:8px 0;
+}
+
+button{
+background:#007bff;
+color:white;
+border:none;
+padding:12px;
+width:100%;
+cursor:pointer;
+margin-top:10px;
+}
+
+table{
+margin-top:20px;
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+border:1px solid #ddd;
+padding:8px;
+text-align:center;
+}
+
+th{
+background:#007bff;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Workflow Productivity Tracker</h1>
+
+<label>Industry</label>
+<select id="industry">
+<option>Software</option>
+<option>Education</option>
+<option>Logistics</option>
+<option>healthcare</option>
+<option>manufacture</option>
+<option>Other</option>
+</select>
+
+<label>Task Name</label>
+<input type="text" id="taskName">
+
+<label>Task Description</label>
+<textarea id="description"></textarea>
+
+<label>Owner / Responsible Person</label>
+<input type="text" id="owner">
+
+<label>Estimated Time (minutes)</label>
+<input type="number" id="estimatedTime">
+
+<label>Actual Time (minutes)</label>
+<input type="number" id="actualTime">
+
+<label>Priority</label>
+<select id="priority">
+<option>High</option>
+<option>Medium</option>
+<option>Low</option>
+</select>
+
+<label>Task Status</label>
+<select id="status">
+<option>Pending</option>
+<option>In Progress</option>
+<option>Completed</option>
+</select>
+
+<label>Deadline</label>
+<input type="date" id="deadline">
+
+<button onclick="addTask()">Add Workflow Task</button>
+
+<table id="taskTable">
+
+<tr>
+<th>Industry</th>
+<th>Task</th>
+<th>Description</th>
+<th>Owner</th>
+<th>Est Time</th>
+<th>Actual Time</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Deadline</th>
+</tr>
+
+</table>
+
+</div>
+
+<script>
+
+function addTask(){
+
+let industry=document.getElementById("industry").value
+let name=document.getElementById("taskName").value
+let description=document.getElementById("description").value
+let owner=document.getElementById("owner").value
+let estimated=document.getElementById("estimatedTime").value
+let actual=document.getElementById("actualTime").value
+let priority=document.getElementById("priority").value
+let status=document.getElementById("status").value
+let deadline=document.getElementById("deadline").value
+
+let table=document.getElementById("taskTable")
+
+let row=table.insertRow()
+
+row.insertCell(0).innerHTML=industry
+row.insertCell(1).innerHTML=name
+row.insertCell(2).innerHTML=description
+row.insertCell(3).innerHTML=owner
+row.insertCell(4).innerHTML=estimated
+row.insertCell(5).innerHTML=actual
+row.insertCell(6).innerHTML=priority
+row.insertCell(7).innerHTML=status
+row.insertCell(8).innerHTML=deadline
+
+document.getElementById("taskName").value=""
+document.getElementById("description").value=""
+document.getElementById("owner").value=""
+document.getElementById("estimatedTime").value=""
+document.getElementById("actualTime").value=""
+document.getElementById("deadline").value=""
+
+}
+
+</script>
+
+</body>
+</html>
